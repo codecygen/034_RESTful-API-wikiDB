@@ -15,8 +15,7 @@ async function main(){
 main().catch(err => console.error(err));
 
 app.get('/', (req, res) => {
-    res.write('hi!');
-    res.send();
+    res.render('home');
 });
 
 
