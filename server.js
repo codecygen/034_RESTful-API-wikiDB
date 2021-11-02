@@ -14,6 +14,23 @@ async function main(){
 
 main().catch(err => console.error(err));
 
+const articleSchema = new mongoose.Schema({
+    title: String,
+    content: String
+});
+
+const Article = mongoose.model('Article', articleSchema);
+
+app.get('/articles', (req, res) => {
+    Article.find((err, docs) => {
+        if(err){
+            console.error(err);
+        } else {
+            res.send(docs);
+        }
+    });
+});
+
 app.get('/', (req, res) => {
     res.render('home');
 });
