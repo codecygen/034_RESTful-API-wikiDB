@@ -50,7 +50,7 @@ app.post('/articles', (req, res) => {
             res.send("There has been a problem. Please contact admin.");
         } else {
             // Sends this response to the POSTMAN App
-            res.send("Successfully added a new article");
+            res.send("Successfully added a new article.");
         }
     });
 });

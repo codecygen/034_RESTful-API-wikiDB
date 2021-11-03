@@ -12,4 +12,10 @@ KEY: VALUE
 title: Canada  
 content: Canada is the largest country in the Western hemisphere and the second largest country in the world after Russia and borders only one country, the United States of America.
 
-Click on "Body" tab and select "x-www-form-urlencoded" then hit "Send" button. This will send POST request
+Click on "Body" tab and select "x-www-form-urlencoded" then hit "Send" button. This will send POST a request. If your program sends the request successfully, POSTMAN should show the message like:
+
+"Successfully added a new article."
+
+or in case sending fails, the message will be like,
+
+"There has been a problem. Please contact admin."
