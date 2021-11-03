@@ -1,42 +1,15 @@
-​ REST (Representational State Transfer):
-Client ------------------------------------------------> Server
-	                 HTTP Request
-	      app.get(function(req, res) {};
+POST REQUEST
+===
 
-req is request to the server, res is the response of the server.
+Download Postman locally.
 
-Requests:
-HTTP: Hyper Text Transfer Protocol Secure request
-HTTPS: Secure Hyper Text Transfer Protocol Secure request
-FTP: File Transfer Protocol request
+Open up the software on your computer.
 
-REST is an architectural style for designing APIs.
-SOAP, GraphQL, FALCOR are some other architectural styles.
+Create a POST request. enter these sections
 
-To make your API RESTful, there are couple of cases.
-1) Use HTTP Request Verbs (GET, POST, PUT, PATCH, DELETE).
-CRUD (Create, Read, Update, Delete) works same for databases just like HTTP Verbs.
+POST: http://localhost:3000/articles
+KEY: VALUE
+title: Canada
+content: Canada is the largest country in the Western hemisphere and the second largest country in the world after Russia and borders only one country, the United States of America.
 
-In HTTP,
-GET corresponds to READ of database (app.get).
-POST corresponds to CREATE of database (app.post).
-PUT AND PATCH correspond to UPDATE of database (app.put, app.patch). PUT updates entire entry, while PATCH is only updates the relevant section of the entry.
-DELETE corresponds to DELETE of database (app.delete)
-
-
-2) Use Specific Pattern of Routes/Endpoint URLs.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Click on "Body" tab and select "x-www-form-urlencoded" then hit "Send" button. This will send POST request

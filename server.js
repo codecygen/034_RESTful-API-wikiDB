@@ -32,8 +32,27 @@ app.get('/articles', (req, res) => {
 });
 
 app.post('/articles', (req, res) => {
+    // POST request is sent by POSTMAN App which should be installed
+    // locally. You should send a POST request using the app. Details
+    // on how to send a POST request in provided on README.md.
     console.log(req.body.title);
     console.log(req.body.content);
+
+    const newArticle = new Article({
+        title: req.body.title,
+        content: req.body.content
+    });
+
+    newArticle.save(err => {
+        if(err){
+            console.error(err);
+            // Sends this response to the POSTMAN App
+            res.send("There has been a problem. Please contact admin.");
+        } else {
+            // Sends this response to the POSTMAN App
+            res.send("Successfully added a new article");
+        }
+    });
 });
 
 app.get('/', (req, res) => {
