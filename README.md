@@ -1,7 +1,7 @@
 POST REQUEST
 ===
 
-Download Postman locally.
+Download POSTMAN App locally.
 
 Open up the software on your computer.
 
@@ -19,3 +19,8 @@ Click on "Body" tab and select "x-www-form-urlencoded" then hit "Send" button. T
 or in case sending fails, the message will be like,
 
 "There has been a problem. Please contact admin."
+
+GET and DELETE REQUEST
+===
+
+You can use POSTMAN App similarly to send a GET request. All you need to do is to change verb to GET.

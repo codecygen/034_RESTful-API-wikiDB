@@ -22,6 +22,13 @@ const articleSchema = new mongoose.Schema({
 const Article = mongoose.model('Article', articleSchema);
 
 app.get('/articles', (req, res) => {
+    // GET request is sent by POSTMAN App which should be installed
+    // locally. You should send a GET request using the app. Details
+    // on how to send a GET request in provided on README.md.
+
+    // Alternatively, just typing "http://localhost:3000/articles" on your browser search bar
+    // will fire up the GET request as well.
+
     Article.find((err, docs) => {
         if(err){
             console.error(err);
@@ -51,6 +58,23 @@ app.post('/articles', (req, res) => {
         } else {
             // Sends this response to the POSTMAN App
             res.send("Successfully added a new article.");
+        }
+    });
+});
+
+app.delete('/articles', (req, res) => {
+    // DELETE request is sent by POSTMAN App which should be installed
+    // locally. You should send a DELETE request using the app. Details
+    // on how to send a DELETE request in provided on README.md.
+
+    Article.deleteMany((err) => {
+        if(err){
+            console.error(err);
+            // Sends this response to the POSTMAN App
+            res.send("There has been a problem. Please contact admin.");
+        } else {
+            // Sends this response to the POSTMAN App
+            res.send("Successfully deleted article(s).");
         }
     });
 });
