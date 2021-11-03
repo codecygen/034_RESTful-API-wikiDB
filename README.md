@@ -1,3 +1,15 @@
+Entries we would like to enter
+
+Canada  
+Canada is the largest country in the Western hemisphere and the second largest country in the world after Russia and borders only one country, the United States of America.
+
+France  
+France is the largest country in the EU and sometimes called the hexagon.
+
+USA  
+The capital city of the USA is called Washington D.C. D.C. stands for District of Columbia.
+
+
 POST REQUEST
 ===
 
