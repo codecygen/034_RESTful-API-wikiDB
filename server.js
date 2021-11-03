@@ -80,23 +80,14 @@ app.delete('/articles', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-    res.render('home');
+    Article.find((err, docs) => {
+        if(err){
+            console.error(err);
+        } else {
+            res.render('home', {docs: docs});
+        }
+    });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 const port = 3000;
 

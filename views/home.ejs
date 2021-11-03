@@ -2,6 +2,12 @@
 
 <div>
   <h1>WELCOME TO WIKI DB</h1>
+
+  <% docs.forEach(doc => { %>
+    <h2><%= doc.title %></h2>
+    <p><%= doc.content %></p>
+  <% }); %>
+  
 </div>
 
 <%- include('partials/footer') %>
