@@ -3,6 +3,7 @@ const app = express();
 const ejs = require('ejs');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const _ = require('lodash');
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(express.static('/public'));
@@ -24,7 +25,7 @@ const Article = mongoose.model('Article', articleSchema);
 // app.route is a chain route technique which is used if you have get, post, delete etc
 // requests to the same route, you can simply chain them with app.route.
 // instead of using app.get, app.post and app.delete. See the example below.
-app.route("/articles")
+app.route('/articles')
 
     .get((req, res) => {
         // GET request is sent by POSTMAN App which should be installed
@@ -80,6 +81,24 @@ app.route("/articles")
             } else {
                 // Sends this response to the POSTMAN App
                 res.send("Successfully deleted article(s).");
+            }
+        });
+    })
+;
+
+app.route('/articles/:titleLink')
+
+    .get((req, res) => {
+        const titleLink = _.capitalize(req.params.titleLink);
+        Article.findOne({title: titleLink}, (err, doc) => {
+            if(err){
+                console.error(err);
+            } else {
+                if(doc == null) {
+                    res.send(`<h1>${titleLink} does not exist in our database.</h1>`);
+                } else {
+                    res.send(doc);
+                }
             }
         });
     })
