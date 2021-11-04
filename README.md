@@ -1,13 +1,20 @@
+HOW IT WORKS?
+===
+1) localhost:3000 will show all the entered title and contents to the database.
+2) if there is nothing exists, new title and content can be added to the database with POSTMAN App's POST request from the localhost:3000/articles. This link is the link for GET, POST and DELETE requests for database and all of the can be done from POSTMAN App.
+3) If you would like to request a special title and content, GET request can be done via localhost:3000/articles/"countryname". If "countryname" is not in the database, web app will warn you that it does not exist in the database.
+
+
 Entries we would like to enter
 
-Canada  
-Canada is the largest country in the Western hemisphere and the second largest country in the world after Russia and borders only one country, the United States of America.
+title: Canada  
+content: Canada is the largest country in the Western hemisphere and the second largest country in the world   after Russia and borders only one country, the United States of America.
 
-France  
-France is the largest country in the EU and sometimes called the hexagon.
+title: France  
+content: France is the largest country in the EU and sometimes called the hexagon.
 
-USA  
-The capital city of the USA is called Washington D.C. D.C. stands for District of Columbia.
+title: USA  
+content: The capital city of the USA is called Washington D.C. D.C. stands for District of Columbia.
 
 
 POST REQUEST
