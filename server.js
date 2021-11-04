@@ -183,12 +183,9 @@ app.route('/articles/:titleLink')
                     } else {
                         res.send('Nothing in the database is updated!');
                     }
-                }
-                    
+                }                  
             }
         );
-
-        
     })
 ;
 
