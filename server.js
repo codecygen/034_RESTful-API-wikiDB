@@ -86,24 +86,6 @@ app.route('/articles')
     })
 ;
 
-app.route('/articles/:titleLink')
-
-    .get((req, res) => {
-        const titleLink = _.capitalize(req.params.titleLink);
-        Article.findOne({title: titleLink}, (err, doc) => {
-            if(err){
-                console.error(err);
-            } else {
-                if(doc == null) {
-                    res.send(`<h1>${titleLink} does not exist in our database.</h1>`);
-                } else {
-                    res.send(doc);
-                }
-            }
-        });
-    })
-;
-
 // app.get('/articles', (req, res) => {
 //     // GET request is sent by POSTMAN App which should be installed
 //     // locally. You should send a GET request using the app. Details
@@ -161,6 +143,24 @@ app.route('/articles/:titleLink')
 //         }
 //     });
 // });
+
+app.route('/articles/:titleLink')
+
+    .get((req, res) => {
+        const titleLink = _.capitalize(req.params.titleLink);
+        Article.findOne({title: titleLink}, (err, doc) => {
+            if(err){
+                console.error(err);
+            } else {
+                if(doc == null) {
+                    res.send(`<h1>${titleLink} does not exist in our database.</h1>`);
+                } else {
+                    res.send(doc);
+                }
+            }
+        });
+    })
+;
 
 app.get('/', (req, res) => {
     Article.find((err, docs) => {
