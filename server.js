@@ -160,6 +160,36 @@ app.route('/articles/:titleLink')
             }
         });
     })
+
+    .put((req, res) => {
+        const titleLink = _.capitalize(req.params.titleLink);
+        const title = req.body.title;
+        const content = req.body.content
+
+        Article.updateOne(
+            {title: titleLink}, 
+            {
+                title: title,
+                content: content
+            },
+            (err, response) => {
+                if(err){
+                    console.error(err);
+                } else {
+                    if(response.matchedCount > 0){
+                        res.write(`${titleLink} is updated as ${title}. \n`);
+                        res.write(`New content: \n ${content}`);
+                        res.send();
+                    } else {
+                        res.send('Nothing in the database is updated!');
+                    }
+                }
+                    
+            }
+        );
+
+        
+    })
 ;
 
 app.get('/', (req, res) => {

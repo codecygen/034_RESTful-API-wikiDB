@@ -3,6 +3,7 @@ HOW IT WORKS?
 1) localhost:3000 will show all the entered title and contents to the database.
 2) if there is nothing exists, new title and content can be added to the database with POSTMAN App's POST request from the localhost:3000/articles. This link is the link for GET, POST and DELETE requests for database and all of the can be done from POSTMAN App.
 3) If you would like to request a special title and content, GET request can be done via localhost:3000/articles/"countryname". If "countryname" is not in the database, web app will warn you that it does not exist in the database.
+4) If you would like to edit a special title and content, go to localhost:3000/articles/"countryname". Then with POSTMAN App fire up a PUT request, change title and content to the one you want and click send.
 
 
 Entries we would like to enter
@@ -39,7 +40,9 @@ or in case sending fails, the message will be like,
 
 "There has been a problem. Please contact admin."
 
-GET and DELETE REQUEST
+GET, PUT and DELETE REQUEST
 ===
 
-You can use POSTMAN App similarly to send a GET request. All you need to do is to change verb to GET.
+You can use POSTMAN App similarly to send a GET, PUT and DELETE requests. All you need to do is to change verb to GET, PUT or DELETE.
+
+GET gets the database, PUT updates database, DELETE deletes the database.
