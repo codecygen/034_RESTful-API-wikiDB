@@ -30,7 +30,7 @@ app.route('/articles')
     .get((req, res) => {
         // GET request is sent by POSTMAN App which should be installed
         // locally. You should send a GET request using the app. Details
-        // on how to send a GET request in provided on README.md.
+        // on how to send a GET request is provided on README.md.
 
         // Alternatively, just typing "http://localhost:3000/articles" on your browser search bar
         // will fire up the GET request as well.
@@ -47,7 +47,7 @@ app.route('/articles')
     .post((req, res) => {
         // POST request is sent by POSTMAN App which should be installed
         // locally. You should send a POST request using the app. Details
-        // on how to send a POST request in provided on README.md.
+        // on how to send a POST request is provided on README.md.
         console.log(req.body.title);
         console.log(req.body.content);
 
@@ -71,7 +71,7 @@ app.route('/articles')
     .delete((req, res) => {
         // DELETE request is sent by POSTMAN App which should be installed
         // locally. You should send a DELETE request using the app. Details
-        // on how to send a DELETE request in provided on README.md.
+        // on how to send a DELETE request is provided on README.md.
 
         Article.deleteMany((err) => {
             if(err){
@@ -106,7 +106,7 @@ app.route('/articles')
 // app.post('/articles', (req, res) => {
 //     // POST request is sent by POSTMAN App which should be installed
 //     // locally. You should send a POST request using the app. Details
-//     // on how to send a POST request in provided on README.md.
+//     // on how to send a POST request is provided on README.md.
 //     console.log(req.body.title);
 //     console.log(req.body.content);
 
@@ -130,7 +130,7 @@ app.route('/articles')
 // app.delete('/articles', (req, res) => {
 //     // DELETE request is sent by POSTMAN App which should be installed
 //     // locally. You should send a DELETE request using the app. Details
-//     // on how to send a DELETE request in provided on README.md.
+//     // on how to send a DELETE request is provided on README.md.
 
 //     Article.deleteMany((err) => {
 //         if(err){
@@ -186,6 +186,52 @@ app.route('/articles/:titleLink')
                 }                  
             }
         );
+    })
+
+    .patch((req, res) => {
+        const titleLink = _.capitalize(req.params.titleLink);
+        console.log(`${titleLink}`);
+
+        Article.updateOne(
+            {title: titleLink}, 
+            {
+                // This indicates that it could be req.body.title or req.body.content
+                // Only updates whichever field is patched on POSTMAN App.
+                $set: req.body                    
+            },
+            (err, response) => {
+                if(err){
+                    console.error(err);
+                } else {
+                    if(response.matchedCount > 0){
+                        res.write(`${titleLink}'s content is updated. \n`);
+                        res.write(`New content: \n ${req.body.content}`);
+                        res.send();
+                    } else {
+                        res.send('Nothing in the database is updated!');
+                    }
+                }                  
+            }
+        );
+    })
+
+    .delete((req, res) => {
+        const titleLink = _.capitalize(req.params.titleLink);
+        // DELETE request is sent by POSTMAN App which should be installed
+        // locally. You should send a DELETE request using the app to
+        // localhost:3000/articles/{countryname}. 
+        // Details on how to send a DELETE request is provided on README.md.
+
+        Article.deleteMany({title: titleLink}, (err) => {
+            if(err){
+                console.error(err);
+                // Sends this response to the POSTMAN App
+                res.send(`We could not complete DELETE request for ${titleLink}.`);
+            } else {
+                // Sends this response to the POSTMAN App
+                res.send(`Successfully deleted ${titleLink}.`);
+            }
+        });
     })
 ;
 
