@@ -1,4 +1,4 @@
-HOW IT WORKS?
+How It Works?
 ===
 1) localhost:3000 will show all the entered title and contents to the database.
 2) GLOBAL GET, POST, DELETE REQUESTS: if there is nothing exists, new title and content can be added to the database with POSTMAN App's POST request from the localhost:3000/articles. This link is the link for GET, POST and DELETE requests for database and all of the can be done from POSTMAN App. From the same link, you can also delete the entire database with DELETE request.
@@ -20,7 +20,7 @@ title: Brazil
 content: Brazil's name comes from the pau-brasil, Portuguese for Brazil tree, the country's national tree and a natural resource that played an important role in the economic development of the nation.
 
 
-POST REQUEST
+How to Do GET, POST, PUT, PATCH, DELETE REQUEST
 ===
 
 Download POSTMAN App locally.
@@ -42,9 +42,7 @@ or in case sending fails, the message will be like,
 
 "There has been a problem. Please contact admin."
 
-GET, PUT, PATCH and DELETE REQUEST
+GET, POST, PUT, PATCH and DELETE Requests
 ===
 
-You can use POSTMAN App similarly to send a GET, PUT, PATCH and DELETE requests. All you need to do is to change verb to GET, PUT, PATCH and DELETE.
-
-GET gets the database, PUT updates database, DELETE deletes the database.
+You can use POSTMAN App similarly to send GET, POST, PUT, PATCH and DELETE requests. All you need to do is to change verb to GET, POST, PUT, PATCH and DELETE, specify the link location, and then provide the key value pairs if necessary.
